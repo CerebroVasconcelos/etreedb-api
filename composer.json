@@ -33,6 +33,7 @@
         "zfcampus/zf-oauth2": "dev-master",
         "bshaffer/oauth2-server-php": "dev-develop",
         "soliantconsulting/soliantconsulting-apigility": "dev-master",
+
         "hounddog/doctrine-data-fixture-module": "dev-master",
         "doctrine/doctrine-orm-module" : "0.*",
         "doctrine/doctrine-module" : "0.*",
@@ -41,7 +42,16 @@
         "doctrine/orm" : "2.3.x-dev",
         "doctrine/data-fixtures" : "dev-master",
         "doctrine/migrations" : "v1.0-ALPHA1",
-        "etreedb/etreedb-db": "dev-master"
+
+        "etreedb/etreedb-db": "dev-master",
+
+        "zf-commons/zfc-user": "0.1.2",
+        "zf-commons/zfc-user-doctrine-orm": "dev-master",
+        "bjyoungblood/bjy-authorize":"dev-master",
+
+        "gracenote/gracenote": "dev-master",
+        "jambase/jambase": "dev-master",
+        "echonest/echonest": "dev-master"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",

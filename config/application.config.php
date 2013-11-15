@@ -20,6 +20,8 @@ return array(
         'DoctrineORMModule',
         'DoctrineDataFixtureModule',
         'EtreeDb\Db',
+        'ZfcBase',
+        'DoctrineApi'
         ),
     'module_listener_options' => array(
         'module_paths' => array(

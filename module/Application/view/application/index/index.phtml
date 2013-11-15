@@ -1,10 +1,21 @@
 <div class="jumbotron">
     <h1>EtreeDb API</h1>
     <p>
-	This is the API for EtreeDb, the next generation of db.etree.org
+    This is the API for EtreeDb, the next generation of db.etree.org
     </p>
 
-    <p><a class="btn btn-success" href="/soliant-consulting/apigility/admin">Create API</a>
+    <p>
+    <?php
+    if (class_exists('EtreeDb\Db\Module')) {
+    ?>
+        <a class="btn btn-success" href="/soliant-consulting/apigility/admin">Create API</a>
+    <?php
+    } else {
+    ?>
+        To create the API enable development mode.
+    <?php
+    }
+    ?>
     </p>
 
 </div>
