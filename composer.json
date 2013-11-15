@@ -1,0 +1,52 @@
+{
+    "name": "zendframework/skeleton-application",
+    "description": "Skeleton Application for ZF2",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2"
+    ],
+    "homepage": "http://framework.zend.com/",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:etreedb/etreedb-db"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:TomHAnderson/soliantconsulting-apigility"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "dev-develop",
+        "rwoverdijk/assetmanager": "dev-master",
+        "zfcampus/zf-apigility": "dev-master",
+        "zfcampus/zf-configuration": "dev-master",
+        "zfcampus/zf-api-problem": "dev-master",
+        "zfcampus/zf-rpc": "dev-master",
+        "zfcampus/zf-content-negotiation": "dev-master",
+        "zfcampus/zf-hal": "dev-master",
+        "zfcampus/zf-versioning": "dev-master",
+        "zfcampus/zf-mvc-auth": "dev-master",
+        "zfcampus/zf-rest": "dev-master",
+        "zfcampus/zf-oauth2": "dev-master",
+        "bshaffer/oauth2-server-php": "dev-develop",
+        "soliantconsulting/soliantconsulting-apigility": "dev-master",
+        "hounddog/doctrine-data-fixture-module": "dev-master",
+        "doctrine/doctrine-orm-module" : "0.*",
+        "doctrine/doctrine-module" : "0.*",
+        "doctrine/common" : "2.4.x-dev",
+        "doctrine/dbal" : "2.3.x-dev",
+        "doctrine/orm" : "2.3.x-dev",
+        "doctrine/data-fixtures" : "dev-master",
+        "doctrine/migrations" : "v1.0-ALPHA1",
+        "etreedb/etreedb-db": "dev-master"
+    },
+    "require-dev": {
+        "zendframework/zftool": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master",
+        "zfcampus/zf-apigility-admin": "dev-master",
+        "fzaninotto/faker" : "dev-master"
+    }
+}
