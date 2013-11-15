@@ -10,3 +10,5 @@ composer.lock
 vendor/bin
 composer.phar
 vendor
+config/application.config.old
+config/development.config.php
