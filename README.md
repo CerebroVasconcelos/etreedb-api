@@ -13,7 +13,7 @@ Installation
 
 2. Run composer ```./composer.phar install --dev```
 
-3. Create a database in MariaDB or MySQL ```create database etreedb;```
+3. Create a doctrine-compatible database 
 
 4. Copy ```config/development.config.php.dist``` to ```config/development.config.php```
 
