@@ -1,77 +1,83 @@
-ZendSkeletonApplication
+EtreeDb Database API
 =======================
 
 Introduction
 ------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
-systems. This application is meant to be used as a starting place for those
-looking to get their feet wet with ZF2.
+This is the database for a rewrite of db.etree.org.  It is also a demonstration 
+of soliantconsuting-apigility Doctrine entity API creation.
 
 Installation
 ------------
 
-Using Composer (recommended)
-----------------------------
-The recommended way to get a working copy of this project is to clone the repository
-and use `composer` to install dependencies using the `create-project` command:
+1. Clone the repository  ```git clone git@github.com:etreedb/etreedb-api```
 
-    curl -s https://getcomposer.org/installer | php --
-    php composer.phar create-project -sdev --repository-url="https://packages.zendframework.com" zendframework/skeleton-application path/to/install
+2. Run composer ```./composer.phar install --dev```
 
-Alternately, clone the repository and manually invoke `composer` using the shipped
-`composer.phar`:
+3. Create a database in MariaDB or MySQL ```create database etreedb;```
 
-    cd my/project/dir
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git
-    cd ZendSkeletonApplication
-    php composer.phar self-update
-    php composer.phar install
+4. Copy ```config/development.config.php.dist``` to ```config/development.config.php```
 
-(The `self-update` directive is to ensure you have an up-to-date `composer.phar`
-available.)
+5. Copy ```config/autoload/local.php.dist``` to ```config/autoload/local.php``` and edit for your database connection from 3.
 
-Another alternative for downloading the project is to grab it via `curl`, and
-then pass it to `tar`:
+6. Run ```./vendor/bin/doctrine-module orm:schema-tool:create``` to create the tables
 
-    cd my/project/dir
-    curl -#L https://github.com/zendframework/ZendSkeletonApplication/tarball/master | tar xz --strip-components=1
+7. Run ```./vendor/bin/doctrine-module data-fixture:import```
 
-You would then invoke `composer` to install dependencies per the previous
-example.
+8. Run ```php -S localhost:8090 -t public/ public/index.php```
 
-Using Git submodules
---------------------
-Alternatively, you can install using native git submodules:
+9. Browse to ```http://localhost:8090/```
 
-    git clone git://github.com/zendframework/ZendSkeletonApplication.git --recursive
+    Because the API has not been created yet take note no urls from /api/ resolve.
 
-Web Server Setup
-----------------
+10. Click ```Create API```, give it a name.  
 
-### PHP CLI Server
+11. Select all entities *except the Abstracts*.  Click ```Create Api``` and be patient while work is done.
 
-The simplest way to get started if you are using PHP 5.4 or above is to start the internal PHP cli-server in the root directory:
+12. Make a request to ```GET http://localhost:8090/api/performer``` of ```Accept-Type: application/json```
 
-    php -S 0.0.0.0:8080 -t public/ public/index.php
 
-This will start the cli-server on port 8080, and bind it to all network
-interfaces.
+The available api routes are:
 
-**Note: ** The built-in CLI server is *for development only*.
-
-### Apache Setup
-
-To setup apache, setup a virtual host to point to the public/ directory of the
-project and you should be ready to go! It should look something like below:
-
-    <VirtualHost *:80>
-        ServerName zf2-tutorial.localhost
-        DocumentRoot /path/to/zf2-tutorial/public
-        SetEnv APPLICATION_ENV "development"
-        <Directory /path/to/zf2-tutorial/public>
-            DirectoryIndex index.php
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-    </VirtualHost>
+```
+    /api/performer
+    /api/user
+    /api/user_meta
+    /api/user_role
+    /api/user_to_user_role
+    /api/producer
+    /api/event
+    /api/band_group
+    /api/band
+    /api/performer_alias
+    /api/lineup
+    /api/performer_lineup
+    /api/song
+    /api/user_to_band_group
+    /api/band_alias
+    /api/venue
+    /api/venue_group
+    /api/venue_to_venue_group
+    /api/performance
+    /api/performer_performance
+    /api/performance_set
+    /api/performance_set_song
+    /api/source
+    /api/checksum
+    /api/band_comment
+    /api/band_link
+    /api/event_comment
+    /api/event_link
+    /api/lineup_comment
+    /api/performance_comment
+    /api/performance_link
+    /api/performer_comment
+    /api/performer_link
+    /api/producer_link
+    /api/song_comment
+    /api/song_link
+    /api/source_comment
+    /api/source_link
+    /api/venue_comment
+    /api/venue_group_link
+    /api/venue_link
+```
