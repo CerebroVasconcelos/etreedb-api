@@ -73,7 +73,9 @@ return array(
     ),
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\DevelopmentMode' => 'Application\Controller\DevelopmentModeController',
+            'Application\Controller\Application' => 'Application\Controller\ApplicationController',
         ),
     ),
     'view_manager' => array(
@@ -91,11 +93,81 @@ return array(
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
+        'strategies' => array(
+            'ViewJsonStrategy',
+        ),
     ),
-    // Placeholder for console routes
+
+
+    // Console routes
     'console' => array(
         'router' => array(
             'routes' => array(
+                'purge' => array(
+                    'options' => array(
+                        'route' => 'purge',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Application',
+                            'action'     => 'purge',
+                        ),
+                    ),
+                ),
+
+                'drop' => array(
+                    'options' => array(
+                        'route' => 'drop',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Application',
+                            'action'     => 'drop',
+                        ),
+                    ),
+                ),
+
+                'create-api-module' => array(
+                    'options' => array(
+                        'route' => 'build api module',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Application',
+                            'action'     => 'apiModule',
+                        ),
+                    ),
+                ),
+                'create-api' => array(
+                    'options' => array(
+                        'route' => 'build api',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Application',
+                            'action'     => 'api',
+                        ),
+                    ),
+                ),
+                'create-rpc' => array(
+                    'options' => array(
+                        'route' => 'build rpc',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\Application',
+                            'action'     => 'rpc',
+                        ),
+                    ),
+                ),
+                'development-disable' => array(
+                    'options' => array(
+                        'route' => 'development disable',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\DevelopmentMode',
+                            'action'     => 'disable',
+                        ),
+                    ),
+                ),
+                'development-enable' => array(
+                    'options' => array(
+                        'route' => 'development enable',
+                        'defaults' => array(
+                            'controller' => 'Application\Controller\DevelopmentMode',
+                            'action'     => 'enable',
+                        ),
+                    ),
+                ),
             ),
         ),
     ),

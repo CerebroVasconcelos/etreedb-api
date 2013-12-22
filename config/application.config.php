@@ -21,6 +21,7 @@ return array(
         'DoctrineDataFixtureModule',
         'EtreeDb\Db',
         'ZfcBase',
+        'EtreeDbApi'
         ),
     'module_listener_options' => array(
         'module_paths' => array(
