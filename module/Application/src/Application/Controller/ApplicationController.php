@@ -147,6 +147,29 @@ class ApplicationController extends AbstractActionController
             ));
 
             $results[$entityMetadata->name] = $route;
+
+            foreach ($entityMetadata->associationMappings as $mapping) {
+                switch ($mapping['type']) {
+                    case 4:
+                        $rpcServiceResource = $this->getServiceLocator()->get('ZF\Apigility\Admin\Model\RpcServiceResource');
+                        $rpcServiceResource->setModuleName($moduleName);
+                        $rpcServiceResource->create(array(
+                            'service_name' => $resourceName . '_' . $mapping['fieldName'],
+                            'route' => $mappingRoute = $route . '[/:parent_id]/' . $mapping['fieldName'] . '[/:child_id]',
+                            'http_methods' => array(
+                                'GET',
+                            ),
+                            // 'selector' => ??
+                        ));
+
+                        $results[$entityMetadata->name . '_' . $mapping['fieldName']] = $mappingRoute;
+
+                        break;
+                    default:
+                        break;
+                }
+            }
+
         }
 
         return (print_r($results, true) . "\nResources have been created.\n");
@@ -258,6 +281,7 @@ class ApplicationController extends AbstractActionController
 
         $console->writeLine('All done! Tables have been dropped.', ColorInterface::GREEN);
     }
+
 
     /**
      * @return Console

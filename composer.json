@@ -45,7 +45,6 @@
         "doctrine/common" : "2.4.x-dev",
         "doctrine/dbal" : "2.3.x-dev",
         "doctrine/orm" : "2.3.x-dev",
-        "doctrine/data-fixtures" : "dev-master",
         "doctrine/migrations" : "v1.0-ALPHA1",
 
         "etreedb/etreedb-db": "dev-master",
@@ -62,6 +61,7 @@
         "zendframework/zftool": "dev-master",
         "zendframework/zend-developer-tools": "dev-master",
         "zfcampus/zf-apigility-admin": "dev-master",
-        "fzaninotto/faker" : "dev-master"
+        "fzaninotto/faker" : "dev-master",
+        "nelmio/alice": "dev-master"
     }
 }

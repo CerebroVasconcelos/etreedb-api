@@ -141,15 +141,6 @@ return array(
                         ),
                     ),
                 ),
-                'create-rpc' => array(
-                    'options' => array(
-                        'route' => 'build rpc',
-                        'defaults' => array(
-                            'controller' => 'Application\Controller\Application',
-                            'action'     => 'rpc',
-                        ),
-                    ),
-                ),
                 'development-disable' => array(
                     'options' => array(
                         'route' => 'development disable',
