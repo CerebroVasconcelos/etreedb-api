@@ -143,7 +143,7 @@ class ApplicationController extends AbstractActionController
                 'entityIdentifierName' => array_pop($entityMetadata->identifier),
                 'routeMatch' => $route,
                 'hydratorName' => $hydratorName,
-                'hydrateByValue' => true,
+                'hydrateByValue' => false,
             ));
 
             $results[$entityMetadata->name] = $route;
@@ -151,7 +151,7 @@ class ApplicationController extends AbstractActionController
             foreach ($entityMetadata->associationMappings as $mapping) {
                 switch ($mapping['type']) {
                     case 4:
-                        $rpcServiceResource = $this->getServiceLocator()->get('ZF\Apigility\Admin\Model\RpcServiceResource');
+                        $rpcServiceResource = $this->getServiceLocator()->get('SoliantConsulting\Apigility\Admin\Model\DoctrineRpcServiceResource');
                         $rpcServiceResource->setModuleName($moduleName);
                         $rpcServiceResource->create(array(
                             'service_name' => $resourceName . '' . $mapping['fieldName'],
@@ -159,10 +159,13 @@ class ApplicationController extends AbstractActionController
                             'http_methods' => array(
                                 'GET',
                             ),
-                            // 'selector' => ??
+                            'options' => array(
+                                'target_entity' => $mapping['targetEntity'],
+                                'source_entity' => $mapping['sourceEntity'],
+                            ),
                         ));
 
-                        $results[$entityMetadata->name . '_' . $mapping['fieldName']] = $mappingRoute;
+                        $results[$entityMetadata->name . $mapping['fieldName']] = $mappingRoute;
 
                         break;
                     default:
