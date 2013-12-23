@@ -154,7 +154,7 @@ class ApplicationController extends AbstractActionController
                         $rpcServiceResource = $this->getServiceLocator()->get('ZF\Apigility\Admin\Model\RpcServiceResource');
                         $rpcServiceResource->setModuleName($moduleName);
                         $rpcServiceResource->create(array(
-                            'service_name' => $resourceName . '_' . $mapping['fieldName'],
+                            'service_name' => $resourceName . '' . $mapping['fieldName'],
                             'route' => $mappingRoute = $route . '[/:parent_id]/' . $mapping['fieldName'] . '[/:child_id]',
                             'http_methods' => array(
                                 'GET',
