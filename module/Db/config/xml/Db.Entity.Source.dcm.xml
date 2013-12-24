@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\Source" repository-class="EtreeDb\Db\Repository\Source">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" nullable="true"/>
+    <field name="mbid" type="string" nullable="true"/>
+    <field name="format" type="string" nullable="false"/>
+    <field name="note" type="text" nullable="false"/>
+    <field name="content" type="text" nullable="false"/>
+    <field name="mediaSizeCompressed" type="bigint" nullable="true"/>
+    <field name="mediaSizeUncompressed" type="bigint" nullable="true"/>
+    <field name="discCountWav" type="integer" nullable="true"/>
+    <field name="discCountShn" type="integer" nullable="true"/>
+    <field name="createdAt" type="datetime" nullable="false"/>
+    <field name="circulatedAt" type="string" nullable="true"/>
+    <many-to-one field="performance" target-entity="Db\Entity\Performance" inversed-by="source" fetch="EAGER">
+      <join-columns>
+        <join-column name="performance_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+    <one-to-many field="sourceComment" target-entity="Db\Entity\SourceComment" mapped-by="source"/>
+    <one-to-many field="sourceLink" target-entity="Db\Entity\SourceLink" mapped-by="source"/>
+    <one-to-many field="checksum" target-entity="Db\Entity\Checksum" mapped-by="source"/>
+  </entity>
+</doctrine-mapping>

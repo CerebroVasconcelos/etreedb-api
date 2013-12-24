@@ -3,98 +3,98 @@ cd ${0%/*}/..
 
 if [[ ! -f "config/autoload/local.php" ]]
 then
-	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-	echo "The application needs local configuration."
-	echo "  1. cd config/autoload"
-	echo "  2. cp local.php.dist local.php"
-	echo "  3. Edit local.php with DB server address and credentials"
-	echo "  4. Create the following database: etreedb"
-	echo "  5. Run rebuild script again: ./bin/rebuild"
-	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-	exit 1;
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    echo "The application needs local configuration."
+    echo "  1. cd config/autoload"
+    echo "  2. cp local.php.dist local.php"
+    echo "  3. Edit local.php with DB server address and credentials"
+    echo "  4. Create the following database: etreedb"
+    echo "  5. Run rebuild script again: ./bin/rebuild"
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    exit 1;
 fi
 
 echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-read -p " About to rebuild API module (EtreeDbApi). Continue? [y/n]" -n 1 -r
+read -p " About to rebuild API module (DbApi). Continue? [y/n]" -n 1 -r
 echo 
 
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-	echo "  Preparing temporary application config..."
-	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-	sed -n '/EtreeDbApi/!p' config/application.config.php > temp;
- 	mv temp config/application.config.php;
- 	echo "Done!"
- 	echo 
- 	
- 	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
- 	echo "  Generating api module ..."
- 	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
- 	rm -rf module/EtreeDbApi
- 	./app build api module
- 	echo "Done!"
- 	echo 
- 	
- 	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
- 	echo "  Generating API resources and routes..."
- 	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
- 	./app build api
- 	echo "Done! The API has been rebuilt in module/EtreeDbApi"
- 	echo 
- 	echo
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    echo "  Preparing temporary application config..."
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    sed -n '/DbApi/!p' config/application.config.php > temp;
+    mv temp config/application.config.php;
+    echo "Done!"
+    echo 
+    
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    echo "  Generating api module ..."
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    rm -rf module/DbApi
+    ./app build api module
+    echo "Done!"
+    echo 
+    
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    echo "  Generating API resources and routes..."
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    ./app build api
+    echo "Done! The API has been rebuilt in module/DbApi"
+    echo 
+    echo
 
-	echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-	read -p "Would you like to drop and re-create all database tables now? [y/n]" -n 1 -r
-	echo 
+    echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+    read -p "Would you like to drop and re-create all database tables now? [y/n]" -n 1 -r
+    echo 
 
-	if [[ $REPLY =~ ^[Yy]$ ]]
-	then
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-		echo "  Dropping existing db tables..."
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-		./app drop
-		
-		if [[ "$?" != "0" ]]
-		then
-			echo "Unable to drop database tables due to error. Unable to continue."
-			exit 1;
-		fi
-		
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-		echo "  Tables dropped. Re-creating database schema..."
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-		./vendor/bin/doctrine-module orm:schema-tool:create
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        echo "  Dropping existing db tables..."
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        ./app drop
+        
+        if [[ "$?" != "0" ]]
+        then
+            echo "Unable to drop database tables due to error. Unable to continue."
+            exit 1;
+        fi
+        
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        echo "  Tables dropped. Re-creating database schema..."
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        ./vendor/bin/doctrine-module orm:schema-tool:create
 
-		if [[ "$?" != "0" ]]
-		then
-			echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-			echo "Unable to re-create database schema. "
-			echo "  1. Make sure you're using the latest version of the app (git pull)."
-			echo "  2. Make sure you have all dependencies installed (composer install)."
-			echo "  3. Try manually dropping any leftover tables."
-			echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-			exit 1;
-		fi
+        if [[ "$?" != "0" ]]
+        then
+            echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+            echo "Unable to re-create database schema. "
+            echo "  1. Make sure you're using the latest version of the app (git pull)."
+            echo "  2. Make sure you have all dependencies installed (composer install)."
+            echo "  3. Try manually dropping any leftover tables."
+            echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+            exit 1;
+        fi
 
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-		echo "  Schema created.  Populating Database." 
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-		./vendor/bin/doctrine-module data-fixture:import
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        echo "  Schema created.  Populating Database." 
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        ./vendor/bin/doctrine-module data-fixture:import
 
-		if [[ "$?" != "0" ]]
-		then
-			echo "Unable to generate random data using fixture. "
-			echo "  1. Make sure you're using the latest version of the app (git pull)."
-			echo "  2. Make sure you have all dependencies installed (composer install)."
-			echo "  3. Try manually truncating tables."
-			exit 1;
-		fi
+        if [[ "$?" != "0" ]]
+        then
+            echo "Unable to generate random data using fixture. "
+            echo "  1. Make sure you're using the latest version of the app (git pull)."
+            echo "  2. Make sure you have all dependencies installed (composer install)."
+            echo "  3. Try manually truncating tables."
+            exit 1;
+        fi
 
-		echo 
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
-		echo " All done! The database is now re-created and filled with sample data."
-		echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        echo 
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+        echo " All done! The database is now re-created and filled with sample data."
+        echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
     fi
 else
   echo "Aborting"

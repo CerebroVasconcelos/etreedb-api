@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\Checksum" repository-class="EtreeDb\Db\Repository\Checksum">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" nullable="false"/>
+    <field name="content" type="text" nullable="false"/>
+    <many-to-one field="source" target-entity="Db\Entity\Source" inversed-by="checksum" fetch="EAGER">
+      <join-columns>
+        <join-column name="source_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

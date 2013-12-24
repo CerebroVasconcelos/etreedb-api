@@ -14,10 +14,6 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:TomHAnderson/zf-hal"
-        },
-        {
-            "type": "vcs",
             "url": "git@github.com:etreedb/etreedb-db"
         }
     ],
@@ -30,7 +26,7 @@
         "zfcampus/zf-api-problem": "dev-master",
         "zfcampus/zf-rpc": "dev-master",
         "zfcampus/zf-content-negotiation": "dev-master",
-        "zfcampus/zf-hal": "dev-master#27166a12fba94ea896e82d48c70da6d0623bd24d",
+        "zfcampus/zf-hal": "dev-master",
         "zfcampus/zf-versioning": "dev-master",
         "zfcampus/zf-mvc-auth": "dev-master",
         "zfcampus/zf-rest": "dev-master",
@@ -46,8 +42,6 @@
         "doctrine/dbal" : "2.3.x-dev",
         "doctrine/orm" : "2.3.x-dev",
         "doctrine/migrations" : "v1.0-ALPHA1",
-
-        "etreedb/etreedb-db": "dev-master",
 
         "zf-commons/zfc-user": "0.1.2",
         "zf-commons/zfc-user-doctrine-orm": "dev-master",

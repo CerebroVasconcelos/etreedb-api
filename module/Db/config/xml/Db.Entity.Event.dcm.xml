@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\Event" repository-class="EtreeDb\Db\Repository\Event">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" nullable="false"/>
+    <field name="nameNormalize" type="string" nullable="false"/>
+    <field name="zipcode" type="string" nullable="true"/>
+    <field name="note" type="text" nullable="true"/>
+    <field name="startAt" type="date" nullable="true"/>
+    <field name="endAt" type="date" nullable="true"/>
+    <many-to-one field="producer" target-entity="Db\Entity\Producer" inversed-by="event" fetch="EAGER">
+      <join-columns>
+        <join-column name="producer_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+    <one-to-many field="eventComment" target-entity="Db\Entity\EventComment" mapped-by="event"/>
+    <one-to-many field="eventLink" target-entity="Db\Entity\EventLink" mapped-by="event"/>
+    <one-to-many field="performance" target-entity="Db\Entity\Performance" mapped-by="event"/>
+  </entity>
+</doctrine-mapping>

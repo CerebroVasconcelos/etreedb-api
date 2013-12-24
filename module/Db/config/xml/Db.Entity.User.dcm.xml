@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\User" repository-class="EtreeDb\Db\Repository\User">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="displayName" type="string" nullable="false"/>
+    <field name="username" type="string" nullable="false"/>
+    <field name="email" type="string" nullable="false"/>
+    <field name="password" type="string" nullable="false"/>
+    <field name="note" type="text" nullable="true"/>
+    <field name="isPublic" type="boolean" nullable="false"/>
+    <field name="accessToken" type="string" nullable="true"/>
+    <field name="permission" type="string" nullable="true"/>
+    <field name="createdAt" type="datetime" nullable="false"/>
+    <field name="subscription" type="string" nullable="true"/>
+    <one-to-many field="bandComment" target-entity="Db\Entity\BandComment" mapped-by="user"/>
+    <one-to-many field="performerComment" target-entity="Db\Entity\PerformerComment" mapped-by="user"/>
+    <one-to-many field="songComment" target-entity="Db\Entity\SongComment" mapped-by="user"/>
+    <one-to-many field="sourceComment" target-entity="Db\Entity\SourceComment" mapped-by="user"/>
+    <one-to-many field="performanceComment" target-entity="Db\Entity\PerformanceComment" mapped-by="user"/>
+    <one-to-many field="venueComment" target-entity="Db\Entity\VenueComment" mapped-by="user"/>
+    <one-to-many field="eventComment" target-entity="Db\Entity\EventComment" mapped-by="user"/>
+    <one-to-many field="lineupComment" target-entity="Db\Entity\LineupComment" mapped-by="user"/>
+    <one-to-many field="bandLink" target-entity="Db\Entity\BandLink" mapped-by="user"/>
+    <one-to-many field="performerLink" target-entity="Db\Entity\PerformerLink" mapped-by="user"/>
+    <one-to-many field="songLink" target-entity="Db\Entity\SongLink" mapped-by="user"/>
+    <one-to-many field="sourceLink" target-entity="Db\Entity\SourceLink" mapped-by="user"/>
+    <one-to-many field="performanceLink" target-entity="Db\Entity\PerformanceLink" mapped-by="user"/>
+    <one-to-many field="venueLink" target-entity="Db\Entity\VenueLink" mapped-by="user"/>
+    <one-to-many field="eventLink" target-entity="Db\Entity\EventLink" mapped-by="user"/>
+    <one-to-many field="lineupLink" target-entity="Db\Entity\LineupLink" mapped-by="user"/>
+    <one-to-many field="bandGroup" target-entity="Db\Entity\UserToBandGroup" mapped-by="user"/>
+    <one-to-one field="performer" target-entity="Db\Entity\Performer" mapped-by="user"/>
+    <one-to-many field="userRole" target-entity="Db\Entity\UserToUserRole" mapped-by="user"/>
+    <one-to-many field="userMeta" target-entity="Db\Entity\UserMeta" mapped-by="user"/>
+  </entity>
+</doctrine-mapping>

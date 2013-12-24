@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\Lineup" repository-class="EtreeDb\Db\Repository\Lineup">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" nullable="false"/>
+    <field name="nameNormalize" type="string" nullable="false"/>
+    <field name="note" type="text" nullable="true"/>
+    <many-to-one field="band" target-entity="Db\Entity\Band" inversed-by="lineup" fetch="EAGER">
+      <join-columns>
+        <join-column name="band_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+    <one-to-many field="lineupComment" target-entity="Db\Entity\LineupComment" mapped-by="lineup"/>
+    <one-to-many field="lineupLink" target-entity="Db\Entity\LineupLink" mapped-by="lineup"/>
+    <one-to-many field="performerLineup" target-entity="Db\Entity\PerformerLineup" mapped-by="lineup"/>
+    <one-to-many field="performance" target-entity="Db\Entity\Performance" mapped-by="lineup"/>
+  </entity>
+</doctrine-mapping>

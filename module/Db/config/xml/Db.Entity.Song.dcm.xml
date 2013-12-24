@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\Song" repository-class="EtreeDb\Db\Repository\Song">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="mbid" type="string" nullable="true"/>
+    <field name="name" type="string" nullable="false"/>
+    <field name="nameNormalize" type="string" nullable="false"/>
+    <field name="lyrics" type="text" nullable="true"/>
+    <field name="note" type="text" nullable="true"/>
+    <many-to-one field="band" target-entity="Db\Entity\Band" inversed-by="song" fetch="EAGER">
+      <join-columns>
+        <join-column name="band_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <one-to-many field="songComment" target-entity="Db\Entity\SongComment" mapped-by="song"/>
+    <one-to-many field="songLink" target-entity="Db\Entity\SongLink" mapped-by="song"/>
+    <one-to-many field="performanceSetSong" target-entity="Db\Entity\PerformanceSetSong" mapped-by="song"/>
+  </entity>
+</doctrine-mapping>

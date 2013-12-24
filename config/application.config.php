@@ -19,7 +19,7 @@ return array(
         'DoctrineModule',
         'DoctrineORMModule',
         'DoctrineDataFixtureModule',
-        'EtreeDb\Db',
+        'Db',
         'Import',
         'ZfcBase',
         ),

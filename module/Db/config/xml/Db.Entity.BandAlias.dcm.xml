@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\BandAlias" repository-class="EtreeDb\Db\Repository\Alias">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="name" type="string" nullable="false"/>
+    <field name="nameNormalize" type="string" nullable="false"/>
+    <field name="note" type="text" nullable="true"/>
+    <many-to-one field="band" target-entity="Db\Entity\Band" inversed-by="bandAlias" fetch="EAGER">
+      <join-columns>
+        <join-column name="band_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

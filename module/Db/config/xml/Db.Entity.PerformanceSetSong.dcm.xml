@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\PerformanceSetSong" repository-class="EtreeDb\Db\Repository\PerformanceSetSong">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <field name="note" type="text" nullable="true"/>
+    <field name="length" type="string" nullable="true"/>
+    <field name="isSegue" type="boolean" nullable="true"/>
+    <field name="sort" type="integer" nullable="false"/>
+    <many-to-one field="song" target-entity="Db\Entity\Song" inversed-by="performanceSetSong" fetch="EAGER">
+      <join-columns>
+        <join-column name="song_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="performanceSet" target-entity="Db\Entity\PerformanceSet" inversed-by="performanceSetSong" fetch="EAGER">
+      <join-columns>
+        <join-column name="performanceSet_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

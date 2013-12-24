@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Db\Entity\UserToBandGroup">
+    <id name="id" type="integer">
+      <generator strategy="AUTO"/>
+    </id>
+    <many-to-one field="bandGroup" target-entity="Db\Entity\BandGroup" inversed-by="user">
+      <join-columns>
+        <join-column name="band_group_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="user" target-entity="Db\Entity\User" inversed-by="bandGroup">
+      <join-columns>
+        <join-column name="user_id" referenced-column-name="id" nullable="false"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
