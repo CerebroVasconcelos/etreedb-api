@@ -39,7 +39,7 @@ class ApplicationController extends AbstractActionController
 
     public function apiModuleAction()
     {
-        $moduleName = 'EtreeDbApi';
+        $moduleName = 'DbApi';
         $objectManagerAlias = 'doctrine.entitymanager.orm_default';
         $routePrefix = '';
         $useEntityNamespacesForRoute = false;
