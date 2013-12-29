@@ -15,6 +15,17 @@ then
 fi
 
 echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
+read -p " Rebuild entities? [y/n]" -n 1 -r
+echo 
+
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    rm -rf module/Db/src/Db/Entity;
+    ./vendor/bin/doctrine-module orm:generate-entities module/Db/src;
+    echo "Entities have been rebuilt";
+fi
+
+echo "---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~---~--"
 read -p " About to rebuild API module (DbApi). Continue? [y/n]" -n 1 -r
 echo 
 

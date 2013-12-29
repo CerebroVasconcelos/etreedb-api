@@ -4,12 +4,12 @@
     <id name="id" type="integer">
       <generator strategy="AUTO"/>
     </id>
-    <many-to-one field="user" target-entity="Db\Entity\User" inversed-by="userRole">
+    <many-to-one field="user" target-entity="Db\Entity\User" inversed-by="userToUserRole">
       <join-columns>
         <join-column name="user_id" referenced-column-name="id" nullable="false"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="userRole" target-entity="Db\Entity\UserRole" inversed-by="user">
+    <many-to-one field="userRole" target-entity="Db\Entity\UserRole" inversed-by="userToUserRole">
       <join-columns>
         <join-column name="user_role_id" referenced-column-name="id" nullable="false"/>
       </join-columns>

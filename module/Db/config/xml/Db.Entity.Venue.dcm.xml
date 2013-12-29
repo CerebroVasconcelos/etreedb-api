@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xsi="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Db\Entity\Venue" repository-class="EtreeDb\Db\Repository\Venue">
+  <entity name="Db\Entity\Venue">
     <id name="id" type="integer">
       <generator strategy="AUTO"/>
     </id>
@@ -13,7 +13,7 @@
     <field name="note" type="text" nullable="true"/>
     <one-to-many field="venueComment" target-entity="Db\Entity\VenueComment" mapped-by="venue"/>
     <one-to-many field="venueLink" target-entity="Db\Entity\VenueLink" mapped-by="venue"/>
-    <one-to-many field="venueGroup" target-entity="Db\Entity\VenueToVenueGroup" mapped-by="venue"/>
+    <one-to-many field="venueToVenueGroup" target-entity="Db\Entity\VenueToVenueGroup" mapped-by="venue"/>
     <one-to-many field="performance" target-entity="Db\Entity\Performance" mapped-by="venue" fetch="EAGER"/>
   </entity>
 </doctrine-mapping>

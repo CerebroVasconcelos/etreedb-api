@@ -38,11 +38,13 @@ class Module
                 ),
             ),
 
+/*
             'Db\Loader\DbEntityAutoloader' => array(
                 'namespaces' => array(
                     'Db\Entity' => __DIR__,
                 )
             ),
+        */
         );
     }
 }

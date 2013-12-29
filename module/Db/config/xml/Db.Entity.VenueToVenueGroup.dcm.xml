@@ -4,12 +4,12 @@
     <id name="id" type="integer">
       <generator strategy="AUTO"/>
     </id>
-    <many-to-one field="venue" target-entity="Db\Entity\Venue" inversed-by="venueGroup">
+    <many-to-one field="venue" target-entity="Db\Entity\Venue" inversed-by="venueToVenueGroup">
       <join-columns>
         <join-column name="venue_id" referenced-column-name="id" nullable="false"/>
       </join-columns>
     </many-to-one>
-    <many-to-one field="venueGroup" target-entity="Db\Entity\VenueGroup" inversed-by="venue">
+    <many-to-one field="venueGroup" target-entity="Db\Entity\VenueGroup" inversed-by="venueToVenueGroup">
       <join-columns>
         <join-column name="venue_group_id" referenced-column-name="id" nullable="false"/>
       </join-columns>

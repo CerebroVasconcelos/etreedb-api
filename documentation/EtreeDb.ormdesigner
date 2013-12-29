@@ -185,7 +185,7 @@
     <association from="PerformanceLink" to="Performance" owner-alias="performanceLink" inverse-alias="performance" uuid="1095c176-a24b-4ab4-89cf-0d1fd5c87de1">
       <association-field from="performance_id" to="id"/>
     </association>
-    <association from="PerformanceLink" to="User" caption="User PerformanceLink" owner-alias="performanceLink" inverse-alias="user" uuid="2f95e53b-1488-4fce-8663-d9a6438e0a4d">
+    <association from="PerformanceLink" to="User" caption=" " owner-alias="performanceLink" inverse-alias="user" uuid="2f95e53b-1488-4fce-8663-d9a6438e0a4d">
       <association-field from="user_id" to="id"/>
     </association>
     <entity name="VenueLink" uuid="b6bc11e2-bed6-4abb-912e-31d16eacf7fc">
@@ -195,12 +195,12 @@
       <field name="note" type="text" uuid="3bf520b7-58b6-4d90-9ff6-d829b0d30a0b"/>
       <field name="createdAt" type="datetime" required="true" uuid="1babe8fb-3af2-45fa-a5ae-33c4b759e9d5"/>
       <field name="venue_id" type="integer" required="true" uuid="dcb0fcb1-c434-43e3-97fb-62082499ef9c"/>
-      <field name="user_id" type="integer" required="true" uuid="aa1d0479-6d8c-434c-9512-613838191194"/>
+      <field name="user_id" type="integer" required="true" uuid="908ac439-b949-4ce0-93cd-2e8315b3ebcb"/>
     </entity>
     <association from="VenueLink" to="Venue" owner-alias="venueLink" inverse-alias="venue" uuid="9cd5d88e-5412-486f-acfd-77dc129dbf35">
       <association-field from="venue_id" to="id"/>
     </association>
-    <association from="VenueLink" to="User" caption="User VenueLink" owner-alias="venueLink" inverse-alias="user" uuid="77c278d6-19fe-4173-b40d-0f942054a6b9">
+    <association from="VenueLink" to="User" caption="User VenueLink" owner-alias="venueLink" inverse-alias="user" uuid="8595bacb-e57a-433c-9911-2097a353e1f7">
       <association-field from="user_id" to="id"/>
     </association>
     <entity name="EventLink" uuid="ddff2c7a-e868-4b30-88fc-1a1b070a57d4">
@@ -238,10 +238,10 @@
       <field name="venue_id" type="integer" required="true" uuid="568c552c-e719-427c-8f20-ce0c18b8b2e3"/>
       <field name="venue_group_id" type="integer" required="true" uuid="238e26f9-f6f0-4036-9063-0822cedd0fc7"/>
     </entity>
-    <association from="VenueToVenueGroup" to="Venue" owner-alias="venueGroup" inverse-alias="venue" uuid="26a174e9-ca45-451f-82c3-f563e6a1ff73">
+    <association from="VenueToVenueGroup" to="Venue" owner-alias="venueToVenueGroup" inverse-alias="venue" uuid="26a174e9-ca45-451f-82c3-f563e6a1ff73">
       <association-field from="venue_id" to="id"/>
     </association>
-    <association from="VenueToVenueGroup" to="VenueGroup" owner-alias="venue" inverse-alias="venueGroup" uuid="43ed4159-d3df-4cbd-b98f-658f2bae6cb4">
+    <association from="VenueToVenueGroup" to="VenueGroup" owner-alias="venueToVenueGroup" inverse-alias="venueGroup" uuid="43ed4159-d3df-4cbd-b98f-658f2bae6cb4">
       <association-field from="venue_group_id" to="id"/>
     </association>
     <entity name="UserToBandGroup" uuid="2834d7b9-d260-46f4-aa18-891c92d5d36f">
@@ -260,9 +260,6 @@
       <field name="performer_id" type="integer" required="true" uuid="a7300160-f22e-42e4-9e78-4a475b197013"/>
       <field name="lineup_id" type="integer" required="true" uuid="d3032403-ae5c-4f34-9ff3-79b6af4ae6d1"/>
       <field name="note" type="text" uuid="d9541f3e-af3d-43e3-a41f-8297afc35ede"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\PerformerLineup</attribute>
-      </orm-attributes>
     </entity>
     <association from="PerformerLineup" to="Performer" owner-alias="performerLineup" inverse-alias="performer" uuid="f01b5660-96bd-491f-ae39-3298e9980a3e">
       <association-field from="performer_id" to="id"/>
@@ -285,9 +282,6 @@
       <field name="performer_id" type="integer" required="true" uuid="2724b899-0e06-4125-b997-57adf28a2fd6"/>
       <field name="performance_id" type="integer" required="true" uuid="8742d3eb-0f5c-4592-b6fc-3752f90b8aae"/>
       <field name="note" type="text" uuid="a369e378-169b-48f6-92c5-641c1316ce77"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\PerformerPerformance</attribute>
-      </orm-attributes>
     </entity>
     <association from="PerformerPerformance" to="Performance" owner-alias="performerPerformance" inverse-alias="performance" uuid="0712f5ef-eca0-460d-bbaa-4c07c2b10314">
       <association-field from="performance_id" to="id"/>
@@ -311,9 +305,6 @@
       <field name="name" type="string" required="true" uuid="ad57c29a-f885-4a5e-a17d-c91d749b0fed"/>
       <field name="nameNormalize" type="string" required="true" uuid="369d8f03-7fa4-4c8a-b8f4-4224e827aa3d"/>
       <field name="note" type="text" uuid="f7af4eda-cecb-4ecb-8c61-a3c3467ab6c4"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\PerformerAlias</attribute>
-      </orm-attributes>
     </entity>
     <association from="PerformerAlias" to="Performer" owner-alias="performerAlias" inverse-alias="performer" uuid="6d961e8d-34b1-46d4-b94f-e547d6fe1eec">
       <association-field from="performer_id" to="id"/>
@@ -342,9 +333,6 @@
       <field name="performanceDateAt" type="date" uuid="ed3742ed-c10b-4cc3-bdce-ace52d18f9ad"/>
       <field name="note" type="text" uuid="70e1a491-5f8b-421f-a3b7-6cb8c5b23779"/>
       <field name="mbid" type="string" uuid="3080b8bc-42bb-471e-ba73-a4578aece197"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Performance</attribute>
-      </orm-attributes>
     </entity>
     <association from="Performance" to="Venue" owner-alias="performance" inverse-alias="venue" uuid="c16ceb93-119c-4811-a171-fa7ae36864b8">
       <association-field from="venue_id" to="id"/>
@@ -382,29 +370,14 @@
       <field name="country" type="string" uuid="01428445-ec7f-4611-9339-dd25bb277459"/>
       <field name="zipcode" type="string" uuid="fa601c64-c999-4674-a0ec-266102633f81"/>
       <field name="note" type="text" uuid="763c9d4e-3ae3-4707-9f7c-6da5b482261d"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Venue</attribute>
-      </orm-attributes>
     </entity>
     <entity name="Performer" uuid="8b9c2e8b-b7e6-4ff7-a0a8-b0452541edf2">
       <field name="id" type="integer" primary="true" auto-increment="true" uuid="2773ef01-b20e-467d-a574-b6aae7d9c240"/>
-      <field name="user_id" type="integer" unique="true" uuid="8736456f-b643-4849-bf07-799d6ce3926f"/>
       <field name="mbid" type="string" uuid="20d15256-013b-43c0-abe4-b9957190d67a"/>
       <field name="name" type="string" required="true" uuid="dea0f1f5-155b-40fd-ac86-199b53b466a5"/>
       <field name="nameNormalize" type="string" required="true" uuid="cca59cd0-bafb-43b1-959e-60ef3ef3ef1e"/>
       <field name="note" type="text" uuid="b4f08379-07ea-4a48-8e24-7eff5746ca0c"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Performer</attribute>
-      </orm-attributes>
     </entity>
-    <association from="Performer" to="User" owner-alias="performer" inverse-alias="user" uuid="b1b14245-ba6e-48f4-ba21-c01d58650b25">
-      <association-field from="user_id" to="id"/>
-      <orm-attributes>
-        <attribute name="side-owning">
-          <attribute name="fetch">EAGER</attribute>
-        </attribute>
-      </orm-attributes>
-    </association>
     <entity name="Source" uuid="687e66f7-2707-4262-b22e-f5b98cbbe16b">
       <field name="id" type="integer" primary="true" auto-increment="true" uuid="86461eb9-f869-4d42-8eef-bc104823c507"/>
       <field name="performance_id" type="integer" required="true" uuid="f869a769-1d16-4ca7-963a-ee7d9702a76b"/>
@@ -419,9 +392,6 @@
       <field name="discCountShn" type="integer" uuid="e814c8df-9715-4604-8e6e-8fb38552d0f2"/>
       <field name="createdAt" type="datetime" required="true" uuid="ceb1e42f-a687-40a3-90c1-3c38180573bb"/>
       <field name="circulatedAt" type="string" uuid="96734dbb-5bc7-4b34-b35b-956b7cdd1451"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Source</attribute>
-      </orm-attributes>
     </entity>
     <association from="Source" to="Performance" owner-alias="source" inverse-alias="performance" uuid="a2c72590-97e7-4fb1-abff-34d77daa4a3d">
       <association-field from="performance_id" to="id"/>
@@ -438,9 +408,6 @@
       <field name="nameNormalize" type="string" required="true" uuid="2f0a4f53-d477-4b24-b8ef-79d6f9546e68"/>
       <field name="note" type="text" uuid="caf8c0a0-81b7-40b9-8c6b-924c2e3071b6"/>
       <field name="mbid" type="string" uuid="c0830b05-762c-48d4-97c1-5faa1f4fef87"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Band</attribute>
-      </orm-attributes>
     </entity>
     <association from="Band" to="BandGroup" owner-alias="band" inverse-alias="bandGroup" uuid="5a298604-6995-4022-a80c-d42f8af762b6">
       <association-field from="bandGroup_id" to="id"/>
@@ -459,9 +426,6 @@
       <field name="note" type="text" uuid="e1d2f39d-8cad-41ca-a536-ec3b197315fd"/>
       <field name="startAt" type="date" uuid="eaffabb4-c428-4ace-a907-a01c935a6537"/>
       <field name="endAt" type="date" uuid="aa316c83-f3bc-4561-86ee-5fd09e5c9bc3"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Event</attribute>
-      </orm-attributes>
     </entity>
     <association from="Event" to="Producer" owner-alias="event" inverse-alias="producer" uuid="7d71202d-5a5f-4baf-a2cb-1bf1d6b0325a">
       <association-field from="producer_id" to="id"/>
@@ -476,9 +440,6 @@
       <field name="source_id" type="integer" required="true" uuid="bc233a09-664c-4405-8d35-71d61df0c3d3"/>
       <field name="name" type="string" required="true" uuid="8790363c-3285-4b29-adac-d400ca66fc1b"/>
       <field name="content" type="text" required="true" uuid="b5ce38af-472c-4b83-9c61-6ab29165654b"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Checksum</attribute>
-      </orm-attributes>
     </entity>
     <association from="Checksum" to="Source" owner-alias="checksum" inverse-alias="source" uuid="68ad424c-ee40-4b79-8cf6-a43e71b53ddd">
       <association-field from="source_id" to="id"/>
@@ -494,9 +455,6 @@
       <field name="name" type="string" required="true" uuid="d419d061-ed67-4862-9759-6e9bf3ebdb4b"/>
       <field name="nameNormalize" type="string" required="true" uuid="6595f78c-16c8-447c-8179-3776b42c8e5c"/>
       <field name="note" type="text" uuid="6461e786-fbf6-4c4e-b8e2-9aa06ce81fe5"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Alias</attribute>
-      </orm-attributes>
     </entity>
     <association from="BandAlias" to="Band" owner-alias="bandAlias" inverse-alias="band" uuid="06c521a4-df8e-438a-b214-0672351a82b6">
       <association-field from="band_id" to="id"/>
@@ -511,18 +469,12 @@
       <field name="name" type="string" required="true" uuid="80f5797c-919d-43aa-b866-fd1cd4163959"/>
       <field name="nameNormalize" type="string" required="true" uuid="69c07463-f526-43dd-822a-8fbf23a28090"/>
       <field name="note" type="text" uuid="6345e213-b789-4e45-9d1e-d1b7f2766431"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Producer</attribute>
-      </orm-attributes>
     </entity>
     <entity name="VenueGroup" uuid="9e31240b-a34c-4ad8-afaa-bb21e0724e00">
       <field name="id" type="integer" primary="true" auto-increment="true" uuid="efb97a09-b5f8-4286-bcf4-b32cb29c1ea4"/>
       <field name="name" type="string" required="true" uuid="395c1ab4-9def-4856-b0bb-86236388aa58"/>
       <field name="nameNormalize" type="string" required="true" uuid="77cb2b61-b74b-406a-882f-e5444b3ae3aa"/>
       <field name="note" type="text" uuid="19c1ffd4-034b-46b6-9439-fa8fafe77ba0"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\VenueGroup</attribute>
-      </orm-attributes>
     </entity>
     <entity name="Lineup" uuid="0288b513-9531-454a-bc91-5f02c7d49f45">
       <field name="id" type="integer" primary="true" auto-increment="true" uuid="7ddfeb76-79d8-437c-a06f-ba5da7088887"/>
@@ -530,9 +482,6 @@
       <field name="name" type="string" required="true" uuid="30398254-7fb2-4a6f-947b-98cec8225191"/>
       <field name="nameNormalize" type="string" required="true" uuid="2e04dc46-924c-485a-9a20-eb5da9466795"/>
       <field name="note" type="text" uuid="bcd15dfd-143f-4f6b-bab7-9ac2f52cdf40"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Lineup</attribute>
-      </orm-attributes>
     </entity>
     <association from="Lineup" to="Band" owner-alias="lineup" inverse-alias="band" uuid="5ef988c5-bb5c-4236-800c-804e598f8b3f">
       <association-field from="band_id" to="id"/>
@@ -553,9 +502,6 @@
       <field name="nameNormalize" type="string" required="true" uuid="b857c4b5-116d-48b7-b863-6ca8c2125c32"/>
       <field name="lyrics" type="text" uuid="325ec709-b1a4-45b3-8f52-8c2853d7347d"/>
       <field name="note" type="text" uuid="74a71e0c-e2a7-4d20-9ba0-c19314a830cb"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\Song</attribute>
-      </orm-attributes>
     </entity>
     <association from="Song" to="Band" owner-alias="song" inverse-alias="band" uuid="5c53322a-3c77-4d30-b605-3b68132d0b19">
       <association-field from="band_id" to="id"/>
@@ -573,9 +519,6 @@
       <field name="length" type="string" uuid="fdb8369e-a8bc-44a7-93db-4537467a1f93"/>
       <field name="isSegue" type="boolean" uuid="0e02e43b-8740-4e93-9f90-c9ef160da207"/>
       <field name="sort" type="integer" required="true" uuid="b1cd0e02-facd-4de9-928e-9c612c9dd9f7"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\PerformanceSetSong</attribute>
-      </orm-attributes>
     </entity>
     <association from="PerformanceSetSong" to="Song" owner-alias="performanceSetSong" inverse-alias="song" uuid="7ea7f4b5-d23f-4cfc-a3e8-aab1d06b3a4d">
       <association-field from="song_id" to="id"/>
@@ -606,9 +549,6 @@
       <field name="name" type="string" required="true" uuid="67ea989c-a116-4c33-a7d8-0db0a2c93d73"/>
       <field name="nameNormalize" type="string" required="true" uuid="eb97c2f3-0b36-4c53-a71f-c9841557acec"/>
       <field name="note" type="text" uuid="20ccc270-cffd-4a11-8d34-2da7a50da454"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\BandGroup</attribute>
-      </orm-attributes>
     </entity>
     <entity name="PerformanceSet" uuid="b0a5c9f7-a36e-4d07-8e1c-bf43a0560882">
       <field name="id" type="integer" primary="true" auto-increment="true" uuid="4d007523-93f8-4f04-8304-f24cc92c1164"/>
@@ -616,9 +556,6 @@
       <field name="name" type="string" required="true" uuid="57c63d9a-170e-4144-9f54-b49b00783307"/>
       <field name="note" type="text" required="true" uuid="35d0bd9e-4b46-4a08-b267-6b9b23e38422"/>
       <field name="sort" type="integer" required="true" uuid="7a630014-9994-4e8e-8bc9-a3588e5dedb3"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\PerformanceSet</attribute>
-      </orm-attributes>
     </entity>
     <association from="PerformanceSet" to="Performance" owner-alias="performanceSet" inverse-alias="performance" uuid="45e7a18f-b845-458d-b4f1-b824d2f9b18b">
       <association-field from="performance_id" to="id"/>
@@ -700,10 +637,10 @@
       <field name="user_id" type="integer" required="true" uuid="03d8dc7b-3d52-449f-b664-619f3e754012"/>
       <field name="user_role_id" type="integer" required="true" uuid="4f33eb18-f850-4cc4-b74f-6823ff7dfc02"/>
     </entity>
-    <association from="UserToUserRole" to="User" owner-alias="userRole" inverse-alias="user" uuid="e06d2be5-a775-43c8-a18f-fb59fe5eb819">
+    <association from="UserToUserRole" to="User" owner-alias="userToUserRole" inverse-alias="user" uuid="e06d2be5-a775-43c8-a18f-fb59fe5eb819">
       <association-field from="user_id" to="id"/>
     </association>
-    <association from="UserToUserRole" to="UserRole" owner-alias="user" inverse-alias="userRole" uuid="14705acb-7c2f-4562-a214-b8e61a7d006e">
+    <association from="UserToUserRole" to="UserRole" owner-alias="userToUserRole" inverse-alias="userRole" uuid="14705acb-7c2f-4562-a214-b8e61a7d006e">
       <association-field from="user_role_id" to="id"/>
     </association>
     <entity name="UserRole" uuid="9c24a6ee-23d6-4afa-9039-1f663f1c176a">
@@ -715,9 +652,6 @@
       <field name="user_id" type="integer" required="true" uuid="40aeffc9-1fdb-4d53-859e-78782978086a"/>
       <field name="name" type="string" required="true" uuid="1ef779d2-caa9-416f-91a4-2866661b667c"/>
       <field name="content" type="text" uuid="f2bfe250-7141-4f69-bb22-ae93297c797f"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\UserMeta</attribute>
-      </orm-attributes>
     </entity>
     <association from="UserMeta" to="User" owner-alias="userMeta" inverse-alias="user" uuid="3bbdc063-8e50-40ce-a201-2987db43e666">
       <association-field from="user_id" to="id"/>
@@ -739,9 +673,6 @@
       <field name="permission" type="string" uuid="a8fd5149-a638-4854-ba50-aefde6c644bb"/>
       <field name="createdAt" type="datetime" required="true" uuid="f5f043c9-1642-4e84-9bda-d0b604e2fba7"/>
       <field name="subscription" type="string" uuid="db5f7ee7-fbe5-441f-b1b1-aedd86ebfdb1"/>
-      <orm-attributes>
-        <attribute name="repository-class">EtreeDb\Db\Repository\User</attribute>
-      </orm-attributes>
     </entity>
     <region caption="User" uuid="dc3874d1-08ad-4106-95bc-e52e07edeab3">
       <entity-ref name="UserToUserRole"/>
@@ -806,10 +737,10 @@
     <region uuid="6fbe78c9-c9fd-4d6b-a4f9-2dd405e78bad" bk-color="4293906868" position-x="412" position-y="270" size-x="-8" size-x2="327" size-y="0" size-y2="288"/>
     <association uuid="73a1d1c2-c49d-48da-9cbf-62034634f974" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
     <association uuid="767b07d5-716e-41c4-a349-8a1a816a212e" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
-    <association uuid="77c278d6-19fe-4173-b40d-0f942054a6b9" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
     <association uuid="7a6fda74-bbbf-4399-877d-16a5ccf3a711" splitted="1"/>
     <association uuid="7b48fc99-5e74-47b5-b80e-490465696984" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
     <association uuid="7ea7f4b5-d23f-4cfc-a3e8-aab1d06b3a4d" center-position-x="16" center-position-y="0"/>
+    <association uuid="8595bacb-e57a-433c-9911-2097a353e1f7" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
     <region uuid="86490e22-2c2a-4f81-b8ec-51f819610748" bk-color="15716788" position-x="28" position-y="413" size-x="30" size-x2="380" size-y="144" size-y2="160"/>
     <association uuid="89407061-0858-462d-be34-78080d1d58bc" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
     <entity uuid="8b9c2e8b-b7e6-4ff7-a0a8-b0452541edf2" position-x="27" position-y="104" size-x="0" size-x2="91" size-y="0" size-y2="87"/>
@@ -828,7 +759,6 @@
     <association uuid="a6601ccd-faad-4ca6-b4c8-07f3b30a0f52" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
     <entity uuid="ac9f2726-6f28-4600-8176-9fbea28acfc7" position-x="228" position-y="164" size-x="0" size-x2="100" size-y="0" size-y2="73"/>
     <entity uuid="b0a5c9f7-a36e-4d07-8e1c-bf43a0560882" position-x="51" position-y="205" size-x="0" size-x2="122" size-y="0" size-y2="87"/>
-    <association uuid="b1b14245-ba6e-48f4-ba21-c01d58650b25" splitted="1"/>
     <region uuid="b43dc053-43b9-4d8f-a1ff-0a6c12e17129" bk-color="15716788" position-x="1004" position-y="31" size-x="1" size-x2="176" size-y="68" size-y2="230"/>
     <association uuid="b486adee-ffb4-42e8-9d1b-6d28e0202ecb" caption1-position-x="0" caption1-position-y="0" center-position-x="0" center-position-y="0" splitted="1"/>
     <entity uuid="b6bc11e2-bed6-4abb-912e-31d16eacf7fc" position-x="641" position-y="42" size-x="0" size-x2="105" size-y="0" size-y2="87"/>

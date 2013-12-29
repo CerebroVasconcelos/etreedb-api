@@ -143,7 +143,7 @@ class ApplicationController extends AbstractActionController
                 'entityIdentifierName' => array_pop($entityMetadata->identifier),
                 'routeMatch' => $route,
                 'hydratorName' => $hydratorName,
-                'hydrateByValue' => false,
+                'hydrateByValue' => true,
             ));
 
             $results[$entityMetadata->name] = $route;
@@ -155,13 +155,14 @@ class ApplicationController extends AbstractActionController
                         $rpcServiceResource->setModuleName($moduleName);
                         $rpcServiceResource->create(array(
                             'service_name' => $resourceName . '' . $mapping['fieldName'],
-                            'route' => $mappingRoute = $route . '[/:parent_id]/' . $mapping['fieldName'] . '[/:child_id]',
+                            'route' => $mappingRoute = $route . '[/:parent_id]/' . $filter($mapping['fieldName']) . '[/:child_id]',
                             'http_methods' => array(
                                 'GET',
                             ),
                             'options' => array(
                                 'target_entity' => $mapping['targetEntity'],
                                 'source_entity' => $mapping['sourceEntity'],
+                                'field_name' => $mapping['fieldName'],
                             ),
                         ));
 

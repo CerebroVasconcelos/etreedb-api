@@ -5,6 +5,6 @@
       <generator strategy="AUTO"/>
     </id>
     <field name="name" type="string" nullable="false"/>
-    <one-to-many field="user" target-entity="Db\Entity\UserToUserRole" mapped-by="userRole"/>
+    <one-to-many field="userToUserRole" target-entity="Db\Entity\UserToUserRole" mapped-by="userRole"/>
   </entity>
 </doctrine-mapping>
