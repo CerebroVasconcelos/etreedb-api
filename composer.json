@@ -15,6 +15,22 @@
         {
             "type": "vcs",
             "url": "git@github.com:etreedb/etreedb-db"
+        },
+        {   
+            "type": "vcs",
+            "url": "git@github.com:TomHAnderson/zf-hal"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:TomHAnderson/zf-rest"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:TomHAnderson/zf-apigility-admin"
+        },
+        {
+            "type": "vcs",
+            "url": "git@github.com:TomHAnderson/soliantconsulting-apigility"
         }
     ],
     "require": {
@@ -26,14 +42,14 @@
         "zfcampus/zf-api-problem": "dev-master",
         "zfcampus/zf-rpc": "dev-master",
         "zfcampus/zf-content-negotiation": "dev-master",
-        "zfcampus/zf-hal": "dev-master",
+        "zfcampus/zf-hal": "dev-master#db24299d6a921c38758e6d95257fcc7f36d8c8c2",
         "zfcampus/zf-versioning": "dev-master",
         "zfcampus/zf-mvc-auth": "dev-master",
-        "zfcampus/zf-rest": "dev-master",
+        "zfcampus/zf-rest": "dev-master#c44537ecfafdc819d5d8cdb53e16840d85287fa7",
         "zfcampus/zf-oauth2": "dev-master",
         "zfcampus/zf-content-validation": "~1.0-dev",
         "bshaffer/oauth2-server-php": "dev-develop",
-        "soliantconsulting/soliantconsulting-apigility": "dev-master",
+        "soliantconsulting/soliantconsulting-apigility": "dev-master#da2c4c1a575615e08404e72b1901a87087d2867d",
 
         "hounddog/doctrine-data-fixture-module": "dev-master",
         "doctrine/doctrine-orm-module" : "0.*",
@@ -54,7 +70,7 @@
     "require-dev": {
         "zendframework/zftool": "dev-master",
         "zendframework/zend-developer-tools": "dev-master",
-        "zfcampus/zf-apigility-admin": "dev-master",
+        "zfcampus/zf-apigility-admin": "dev-master#2326e6161886dd44617831797c73fb1f5d20a76c",
         "fzaninotto/faker" : "dev-master",
         "nelmio/alice": "dev-master"
     }

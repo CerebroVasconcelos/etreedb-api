@@ -19,21 +19,10 @@ Installation
 
 5. Copy ```config/autoload/local.php.dist``` to ```config/autoload/local.php``` and edit for your database connection from 3.
 
-6. Run ```./vendor/bin/doctrine-module orm:schema-tool:create``` to create the tables
+6. Run ```./bin/rebuild```  A list of routes will be one of the output of this function
 
-7. Run ```./vendor/bin/doctrine-module data-fixture:import```
+7. Run ```php -S localhost:8090 -t public/ public/index.php```
 
-8. Run ```php -S localhost:8090 -t public/ public/index.php```
+8. Make a request to ```GET http://localhost:8090/api/performer``` of ```Accept-Type: application/json``` or ```GET http://localhost:8090/api/etree_db/db/entity/performer```
 
-9. Browse to ```http://localhost:8090/```
-
-    Because the API has not been created yet take note no urls from /api/ resolve.
-
-10. Click ```Create API```, give it a name.  
-
-11. Select all entities *except the Abstracts*.  You may choose to namespace the created resources.  Click ```Create Api``` and be patient while work is done.
-
-12. Make a request to ```GET http://localhost:8090/api/performer``` of ```Accept-Type: application/json``` or ```GET http://localhost:8090/api/etree_db/db/entity/performer```
-
-The final step in API module creation is a list of routes.
 
