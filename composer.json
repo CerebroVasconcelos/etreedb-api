@@ -45,7 +45,7 @@
         "zfcampus/zf-hal": "dev-master#db24299d6a921c38758e6d95257fcc7f36d8c8c2",
         "zfcampus/zf-versioning": "dev-master",
         "zfcampus/zf-mvc-auth": "dev-master",
-        "zfcampus/zf-rest": "dev-master#c44537ecfafdc819d5d8cdb53e16840d85287fa7",
+        "zfcampus/zf-rest": "dev-master#ccc3f8dcfcd7ec36a2ff21f786af21674ec7aaba",
         "zfcampus/zf-oauth2": "dev-master",
         "zfcampus/zf-content-validation": "~1.0-dev",
         "bshaffer/oauth2-server-php": "dev-develop",
