@@ -70,7 +70,7 @@
     "require-dev": {
         "zendframework/zftool": "dev-master",
         "zendframework/zend-developer-tools": "dev-master",
-        "zfcampus/zf-apigility-admin": "dev-master#2326e6161886dd44617831797c73fb1f5d20a76c",
+        "zfcampus/zf-apigility-admin": "dev-master#77220841b30abcdd581f109f9492ec299d1be7b0",
         "fzaninotto/faker" : "dev-master",
         "nelmio/alice": "dev-master"
     }
