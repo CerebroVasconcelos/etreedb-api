@@ -105,7 +105,7 @@ class ApplicationController extends AbstractActionController
         $objectManager = $this->getServiceLocator()->get($objectManagerAlias);
         $metadataFactory = $objectManager->getMetadataFactory();
 
-        $serviceResource = $this->getServiceLocator()->get('SoliantConsulting\Apigility\Admin\Model\DoctrineRestServiceResource');
+        $serviceResource = $this->getServiceLocator()->get('ZF\Apigility\Doctrine\Admin\Model\DoctrineRestServiceResource');
 
         // Generate a session id for results on next page
         $results = [];
@@ -151,7 +151,7 @@ class ApplicationController extends AbstractActionController
             foreach ($entityMetadata->associationMappings as $mapping) {
                 switch ($mapping['type']) {
                     case 4:
-                        $rpcServiceResource = $this->getServiceLocator()->get('SoliantConsulting\Apigility\Admin\Model\DoctrineRpcServiceResource');
+                        $rpcServiceResource = $this->getServiceLocator()->get('ZF\Apigility\Doctrine\Admin\Model\DoctrineRpcServiceResource');
                         $rpcServiceResource->setModuleName($moduleName);
                         $rpcServiceResource->create(array(
                             'service_name' => $resourceName . '' . $mapping['fieldName'],

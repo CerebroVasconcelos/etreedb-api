@@ -15,45 +15,25 @@
         {
             "type": "vcs",
             "url": "git@github.com:etreedb/etreedb-db"
-        },
-        {   
-            "type": "vcs",
-            "url": "git@github.com:TomHAnderson/zf-hal"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:TomHAnderson/zf-rest"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:TomHAnderson/zf-apigility"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:TomHAnderson/zf-apigility-admin"
-        },
-        {
-            "type": "vcs",
-            "url": "git@github.com:TomHAnderson/soliantconsulting-apigility"
         }
     ],
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "dev-develop",
         "rwoverdijk/assetmanager": "~1.3",
-        "zfcampus/zf-apigility": "dev-master#7e79aff8579dc5d498d2478a9c8c6e15844281a6",
+        "zfcampus/zf-apigility": "~1.0-dev",
         "zfcampus/zf-configuration": "1.0.x-dev",
         "zfcampus/zf-api-problem": "dev-master",
         "zfcampus/zf-rpc": "dev-master",
         "zfcampus/zf-content-negotiation": "dev-master",
-        "zfcampus/zf-hal": "dev-master#5ee3faaa741032379a381629da7f628a4e3624b9",
+        "zfcampus/zf-hal": "dev-master",
         "zfcampus/zf-versioning": "dev-master",
         "zfcampus/zf-mvc-auth": "dev-master",
-        "zfcampus/zf-rest": "dev-master#a962fcd392d8dec2eff5eec806fff76925ba8901",
+        "zfcampus/zf-rest": "dev-master",
         "zfcampus/zf-oauth2": "dev-master",
         "zfcampus/zf-content-validation": "~1.0-dev",
         "bshaffer/oauth2-server-php": "dev-develop",
-        "soliantconsulting/soliantconsulting-apigility": "dev-master#50041bd243115b19d67f2dac459067fb064dc489",
+	"zfcampus/zf-apigility-doctrine": "dev-master",
 
         "hounddog/doctrine-data-fixture-module": "dev-master",
         "doctrine/doctrine-orm-module" : "0.*",
@@ -74,7 +54,7 @@
     "require-dev": {
         "zendframework/zftool": "dev-master",
         "zendframework/zend-developer-tools": "dev-master",
-        "zfcampus/zf-apigility-admin": "dev-master#77220841b30abcdd581f109f9492ec299d1be7b0",
+        "zfcampus/zf-apigility-admin": "dev-master",
         "fzaninotto/faker" : "dev-master",
         "nelmio/alice": "dev-master"
     }

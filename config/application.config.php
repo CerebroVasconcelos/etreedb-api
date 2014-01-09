@@ -22,6 +22,7 @@ return array(
         'Db',
         'Import',
         'ZfcBase',
+        'DbApi'
         ),
     'module_listener_options' => array(
         'module_paths' => array(
