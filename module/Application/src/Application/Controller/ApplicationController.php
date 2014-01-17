@@ -136,7 +136,7 @@ class ApplicationController extends AbstractActionController
             $serviceResource->setModuleName($moduleName);
             $serviceResource->create(array(
                 'objectManager' => $objectManagerAlias,
-                'resourcename' => $resourceName,
+                'resourceName' => $resourceName,
                 'entityClass' => $entityMetadata->name,
                 'pageSizeParam' => 'limit',
                 'routeIdentifierName' => $filter($resourceName) . '_id',
@@ -147,33 +147,6 @@ class ApplicationController extends AbstractActionController
             ));
 
             $results[$entityMetadata->name] = $route;
-
-            foreach ($entityMetadata->associationMappings as $mapping) {
-                switch ($mapping['type']) {
-                    case 4:
-                        $rpcServiceResource = $this->getServiceLocator()->get('ZF\Apigility\Doctrine\Admin\Model\DoctrineRpcServiceResource');
-                        $rpcServiceResource->setModuleName($moduleName);
-                        $rpcServiceResource->create(array(
-                            'service_name' => $resourceName . '' . $mapping['fieldName'],
-                            'route' => $mappingRoute = $route . '[/:parent_id]/' . $filter($mapping['fieldName']) . '[/:child_id]',
-                            'http_methods' => array(
-                                'GET',
-                            ),
-                            'options' => array(
-                                'target_entity' => $mapping['targetEntity'],
-                                'source_entity' => $mapping['sourceEntity'],
-                                'field_name' => $mapping['fieldName'],
-                            ),
-                        ));
-
-                        $results[$entityMetadata->name . $mapping['fieldName']] = $mappingRoute;
-
-                        break;
-                    default:
-                        break;
-                }
-            }
-
         }
 
         return (print_r($results, true) . "\nResources have been created.\n");
