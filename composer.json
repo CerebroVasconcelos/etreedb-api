@@ -3,7 +3,7 @@
     "description": "API for EtreeDb",
     "license": "Apache-2.0",
     "config": {
-        "process-timeout": "900"
+        "process-timeout": 900
     },
     "keywords": [
         "live music",
